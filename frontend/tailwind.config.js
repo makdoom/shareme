@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        primary: "#7C3AED",
+      },
       fontFamily: {
         inter: ["Inter"],
       },

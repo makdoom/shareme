@@ -5,9 +5,27 @@ import { FcGoogle } from "react-icons/fc";
 import shareVideo from "../assets/share.mp4";
 import primaryLogo from "../assets/primaryLogo.svg";
 
+import { client } from "../client";
+
 const Login = () => {
+  const navigate = useNavigate();
   const responseGoogle = (response) => {
-    console.log(response);
+    // setting profile object or localstorage
+    localStorage.setItem("user", JSON.stringify(response.profileObj));
+
+    const { name, googleId, imageUrl } = response.profileObj;
+
+    // creating sanity doc of user
+    const doc = {
+      _id: googleId,
+      _type: "user",
+      userName: name,
+      image: imageUrl,
+    };
+
+    client.createIfNotExists(doc).then(() => {
+      navigate("/", { replace: true });
+    });
   };
 
   return (
