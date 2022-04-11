@@ -9,7 +9,7 @@ const Navbar = ({ serachTerm, setSearchTerm, user }) => {
   if (!user) return null;
 
   return (
-    <div className="flex gap-2 md:gap-5 w-full mt-5">
+    <div className="flex gap-2 md:gap-5 w-full my-5">
       <div className="flex justify-start items-center w-full px-2 rounded-md  border-none outline-none bg-white focus-within:shadow-sm">
         <AiOutlineSearch fontSize={20} className="ml-1" />
         <input
