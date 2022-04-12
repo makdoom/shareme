@@ -15,7 +15,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const user = fetchUser();
 
   const alreadySaved = !!save?.filter(
-    (item) => item.postedBy._id === user.googleId
+    (item) => item.postedBy._id === user?.googleId
   )?.length;
 
   const savePin = (id) => {
@@ -43,6 +43,9 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
     }
   };
 
+  const deletePin = (id) => {
+    client.delete(id).then(() => window.location.reload());
+  };
   return (
     <div className="m-2">
       <div
@@ -106,6 +109,18 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                     ? destination.slice(8, 20)
                     : destination.slice(8)}
                 </a>
+              )}
+              {postedBy?._id === user.googleId && (
+                <button
+                  type="button"
+                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-semibold px-5 py-2 text-sm rounded-3xl hover:shadow-md outline-none"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deletePin(_id);
+                  }}
+                >
+                  Delete
+                </button>
               )}
             </div>
           </div>
