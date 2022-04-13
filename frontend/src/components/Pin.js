@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { client, urlFor } from "../client";
 import { FiDownload } from "react-icons/fi";
 import { fetchUser } from "../utils/fetchUser";
-import { AiOutlineUser } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
-import { AiOutlineLink } from "react-icons/ai";
+import { AiOutlineLink, AiOutlineDelete, AiOutlineUser } from "react-icons/ai";
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const [postHovered, setPostHovered] = useState(false);
@@ -119,13 +118,24 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                     deletePin(_id);
                   }}
                 >
-                  Delete
+                  <AiOutlineDelete />
                 </button>
               )}
             </div>
           </div>
         )}
       </div>
+      <Link
+        to={`user-profile/${postedBy?._id}`}
+        className="flex gap-2 items-center mt-2"
+      >
+        <img
+          src={postedBy?.image}
+          className="h-8 w-8 rounded-full object-cover"
+          alt="user-profile"
+        />
+        <p className="font-semibold capitalize text-sm">{postedBy?.userName}</p>
+      </Link>
     </div>
   );
 };
