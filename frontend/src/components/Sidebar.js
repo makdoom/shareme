@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 
 import secondaryLogo from "../assets/secondaryLogo.svg";
+import { categories } from "../utils/data";
 
 const isNotActiveStyles =
   "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
@@ -10,14 +11,15 @@ const isNotActiveStyles =
 const isActiveStyles =
   "flex items-center px-5 py-2 gap-3 font-bold border-r-4 border-primary transition-all duration-200 ease-in-out capitalize";
 
-const categories = [
-  { name: "Animals" },
-  { name: "Photography" },
-  { name: "Gaming" },
-  { name: "Wallpapers" },
-  { name: "Coding" },
-  { name: "Others" },
-];
+// const categories = [
+//   { name: "Animals" },
+//   { name: "Photography" },
+//   { name: "Gaming" },
+//   { name: "Wallpapers" },
+//   { name: "Coding" },
+//   { name: "Others" },
+// ];
+
 const Sidebar = ({ user, closeToggle }) => {
   const handleCloseSidebars = () => {
     if (closeToggle) closeToggle(false);
@@ -54,6 +56,11 @@ const Sidebar = ({ user, closeToggle }) => {
               onClick={handleCloseSidebars}
               key={category.name}
             >
+              <img
+                src={category.image}
+                alt="category-img"
+                className="w-8 h-8 rounded-full shadow-sm"
+              />
               {category.name}
             </NavLink>
           ))}
