@@ -1,6 +1,6 @@
 # ShareMe Social Media Application
 
-![ShareMe](https://ibb.co/WV1BFvL)
+![ShareMe](https://i.ibb.co/sWrsQ9Z/SHAREME.jpg)
 
 ## Introduction
 
