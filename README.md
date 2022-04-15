@@ -6,6 +6,6 @@
 
 Created this photo sharing social media application using React, Tailwind & Sanity
 
-## Stay up to date with new projects
+## LIVE
 
-New major projects coming soon, subscribe to the mailing list to stay up to date https://jsmasterypro.com/newsletter
+Live: [ShareMe](https://shareme-33.netlify.app/)
